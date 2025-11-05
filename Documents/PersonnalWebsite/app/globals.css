@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Neue Montreal Font Face - tries system font first, then local files */
+/* Uncomment the url() lines below when you add font files to public/fonts/ */
+@font-face {
+  font-family: "Neue Montreal";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Neue Montreal Regular"),
+       local("NeueMontreal-Regular");
+  /* Uncomment when font files are added to public/fonts/:
+  url("/fonts/NeueMontreal-Regular.woff2") format("woff2"),
+  url("/fonts/NeueMontreal-Regular.otf") format("opentype");
+  */
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local("Neue Montreal Medium"),
+       local("NeueMontreal-Medium");
+  /* Uncomment when font files are added to public/fonts/:
+  url("/fonts/NeueMontreal-Medium.woff2") format("woff2"),
+  url("/fonts/NeueMontreal-Medium.otf") format("opentype");
+  */
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Neue Montreal Bold"),
+       local("NeueMontreal-Bold");
+  /* Uncomment when font files are added to public/fonts/:
+  url("/fonts/NeueMontreal-Bold.woff2") format("woff2"),
+  url("/fonts/NeueMontreal-Bold.otf") format("opentype");
+  */
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 53%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    /* Neue Montreal - primary font everywhere */
+    font-family: "Neue Montreal", var(--font-neue-montreal), var(--font-inter), system-ui, -apple-system, sans-serif;
+    font-feature-settings: "kern" 1, "liga" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography Scale - All using Neue Montreal */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Neue Montreal", var(--font-neue-montreal), var(--font-inter), system-ui, sans-serif;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl font-bold leading-tight tracking-tight;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-semibold leading-tight;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold leading-snug;
+  }
+
+  h4 {
+    @apply text-xl font-semibold leading-snug;
+  }
+
+  /* Ensure all text elements use Neue Montreal */
+  p, span, a, li, button, input, textarea, select, label {
+    font-family: "Neue Montreal", var(--font-neue-montreal), var(--font-inter), system-ui, sans-serif;
+  }
+
+  /* Smooth transitions */
+  a,
+  button {
+    @apply transition-colors duration-150;
+  }
+
+  /* Focus styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Section spacing */
+  section {
+    @apply py-16 md:py-24;
+  }
+
+  /* Container */
+  .container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Subtle animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-1 shadow-lg;
+    transform: translateY(-2px);
+  }
+
+  /* Link underline animation */
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-foreground transition-all duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Button hover effects */
+  .btn-hover {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .btn-hover:hover {
+    @apply scale-[1.02] shadow-md;
+  }
+
+  .btn-hover:active {
+    @apply scale-[0.98];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Spacing utilities */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .content-max-width {
+    @apply max-w-3xl mx-auto;
+  }
+
+  .article-max-width {
+    @apply max-w-2xl mx-auto;
+  }
+
+  /* Text utilities */
+  .text-muted {
+    @apply text-muted-foreground;
+  }
+
+  /* Gradient text (if needed for accents) */
+  .gradient-text {
+    @apply bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent;
+  }
+
+  /* Journal Entry Styles */
+  .journal-entry {
+    @apply relative;
+  }
+
+  .journal-entry::before {
+    content: "";
+    @apply absolute -left-4 top-0 h-full w-0.5 bg-border;
+  }
+
+  .journal-entry p {
+    @apply text-justify leading-relaxed;
+    text-indent: 0;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+  }
+
+  .journal-entry p:first-of-type {
+    @apply font-medium;
+  }
+
+  /* Journal-like typography */
+  .journal-entry {
+    font-family: "Neue Montreal", var(--font-neue-montreal), var(--font-inter), system-ui, sans-serif;
+    letter-spacing: 0.01em;
+  }
+
+  /* Responsive journal entry */
+  @media (max-width: 768px) {
+    .journal-entry::before {
+      @apply hidden;
+    }
+  }
+}
+
