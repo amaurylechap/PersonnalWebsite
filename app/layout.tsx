@@ -4,7 +4,6 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
-import { profile } from "@/data/profile";
 import Script from "next/script";
 import { neueMontreal } from "@/lib/fonts";
 

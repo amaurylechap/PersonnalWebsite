@@ -1,7 +1,5 @@
 "use server";
 
-import { profile } from "@/data/profile";
-
 export async function contactAction(formData: FormData) {
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;

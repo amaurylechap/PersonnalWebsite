@@ -22,7 +22,7 @@ export default function ContactPage() {
       await contactAction(formData);
       setStatus("success");
       e.currentTarget.reset();
-    } catch (error) {
+    } catch {
       setStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -132,7 +132,7 @@ export default function ContactPage() {
                 />
                 {status === "success" && (
                   <div className="rounded-md bg-green-50 p-3 text-sm text-green-800 dark:bg-green-900/20 dark:text-green-400">
-                    Message sent successfully! I'll get back to you soon.
+                    Message sent successfully! I&apos;ll get back to you soon.
                   </div>
                 )}
                 {status === "error" && (

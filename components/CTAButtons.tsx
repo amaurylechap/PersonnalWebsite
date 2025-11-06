@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, ArrowRight } from "lucide-react";
+import { Mail, Phone, ArrowRight, FileText } from "lucide-react";
 import Link from "next/link";
 import { profile } from "@/data/profile";
 
@@ -15,7 +15,6 @@ export function CTAButtons({
   showProjects = true,
 }: CTAButtonsProps) {
   const size = variant === "compact" ? "sm" : "default";
-  const iconSize = variant === "compact" ? 16 : 18;
 
   return (
     <div className="flex flex-wrap gap-3">

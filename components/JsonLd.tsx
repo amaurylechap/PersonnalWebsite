@@ -29,16 +29,16 @@ export function JsonLd() {
       "Rapid Prototyping",
     ],
     alumniOf: experiences
-      .filter((exp) => exp.type === "education")
+      .filter((exp) => exp.type === "internship" && exp.company)
       .map((exp) => ({
         "@type": "EducationalOrganization",
-        name: exp.company,
+        name: exp.company!,
       })),
     worksFor: experiences
-      .filter((exp) => exp.type === "employment")
+      .filter((exp) => exp.type === "employment" && exp.company)
       .map((exp) => ({
         "@type": "Organization",
-        name: exp.company,
+        name: exp.company!,
       })),
   };
 

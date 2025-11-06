@@ -3,7 +3,7 @@ import { experiences } from "@/data/experiences";
 import { CTAButtons } from "@/components/CTAButtons";
 import { Tag } from "@/components/Tag";
 import { Badge } from "@/components/ui/badge";
-import { Rocket, Calendar, Building2, Briefcase, GraduationCap, Mail, Phone } from "lucide-react";
+import { Rocket, Calendar, Building2, Briefcase, GraduationCap } from "lucide-react";
 import Image from "next/image";
 
 // Helper function to convert URLs in text to clickable links
@@ -164,7 +164,7 @@ export default function HomePage() {
                     Dear Reader,
                   </p>
                   <p className="text-base">
-                    Thank you for taking the time to look at my work. I'm an aerospace engineer who believes in fast iteration, field testing, and learning from real-world performance. I care less about polished theory and more about building systems that actually fly, survive, and deliver value. What you'll see here reflects that mindset: simple ideas tested quickly, refined repeatedly, and pushed until they work.
+                    Thank you for taking the time to look at my work. I&apos;m an aerospace engineer who believes in fast iteration, field testing, and learning from real-world performance. I care less about polished theory and more about building systems that actually fly, survive, and deliver value. What you&apos;ll see here reflects that mindset: simple ideas tested quickly, refined repeatedly, and pushed until they work.
                   </p>
                   <p className="text-base">
                     This website showcases key projects across UAV systems, flight testing, navigation, and onboard autonomy. Each project demonstrates rapid prototyping cycles, performance analysis, and implementation of improvements based on field results. I look forward to contributing this iterative, hardware-driven approach to future aerospace challenges.
@@ -913,7 +913,7 @@ export default function HomePage() {
             {/* Main heading */}
             <div className="mb-6 text-center">
               <h2 className="mb-3 text-4xl font-normal tracking-tight md:text-5xl lg:text-6xl">
-                Let's work together
+                Let&apos;s work together
               </h2>
               <div className="mx-auto mb-6 h-1 w-24 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
             </div>

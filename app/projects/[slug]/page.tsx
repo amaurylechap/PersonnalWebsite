@@ -1,11 +1,16 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { getProjectBySlug, getAllProjects } from "@/lib/content";
-import { serializeMDX, MDXRemote, components } from "@/lib/mdx";
+import { serializeMDX } from "@/lib/mdx";
 import { Tag } from "@/components/Tag";
 import { Badge } from "@/components/ui/badge";
 import { ArticleJsonLd } from "@/components/ArticleJsonLd";
 import type { Metadata } from "next";
+
+const MDXContent = dynamic(() => import("@/components/MDXContent"), {
+  ssr: false,
+});
 
 export async function generateStaticParams() {
   const projects = getAllProjects();
@@ -66,7 +71,7 @@ export default async function ProjectPage({
         {/* Header */}
         <header className="mb-8">
           <div className="mb-4 flex items-center gap-2">
-            {project.topics.map((topic) => (
+            {project.topics.map((topic: string) => (
               <Tag key={topic}>{topic}</Tag>
             ))}
           </div>
@@ -84,7 +89,7 @@ export default async function ProjectPage({
 
         {/* Content */}
         <div className="prose prose-lg max-w-none dark:prose-invert">
-          <MDXRemote {...mdxSource} components={components} />
+          <MDXContent source={mdxSource} />
         </div>
 
         {/* Breadcrumb */}
